@@ -6,19 +6,34 @@ import './App.css';
 import Members from './Members'
 
 const initialFormValues = {
-  id: '',
-  username: 'default',
-  email: 'default@default.com',
-  role: 'default'
+  username: '',
+  email: '',
+  role: ''
 }
+
+const initialMembersList = [];
 
 function App() {
   const [formValues, setFormValues] = useState(initialFormValues)
+  const [membersList, setMembersList] = useState(initialMembersList)
+
+  const updateForm = (inputName, inputValue) => {
+    setFormValues({...formValues, [inputName]: inputValue });
+  }
+
+  function submitForm(){
+    const member = {
+      username: formValues.username,
+      email: formValues.email,
+      role: formValues.role,
+    }
+    return setMembersList([member, ...membersList]);
+  }
 
   return (
     <div className="App">
-      <Form/>
-      <Members/>
+      <Form values = {formValues} update = {updateForm} submit = {submitForm}/>
+      <Members membersList = {membersList}/>
     </div>
   );
 }

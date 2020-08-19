@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 export default function Member(props){
+    const {member} = props;
     return(
-        <div class='member-card'>Member Card</div>
+        <div className='member-card'>Member Card</div>
     )
 }
