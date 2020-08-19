@@ -11,7 +11,13 @@ const initialFormValues = {
   role: ''
 }
 
-const initialMembersList = [];
+const initialMembersList = [
+  {
+    username: 'William_Herman',
+    email: 'williamAJHerman@gmail.com',
+    role: 'front_end_dev'
+  },
+];
 
 function App() {
   const [formValues, setFormValues] = useState(initialFormValues)
